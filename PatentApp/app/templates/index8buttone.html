@@ -1,0 +1,49 @@
+{% extends "index8button.html" %}
+{% block content %}
+	<br>
+	<h2> Patent information: </h2>
+	{% if error1 %}
+		<p class=error><strong>Error:</strong> {{ error1 }}
+	{% endif %}
+	{% for post in patent %}
+	<p>Patent Number: <a href = "https://www.google.com/patents/US{{ post.Patent_Number }}">{{ post.Patent_Number }}</a></p>
+	<p>Patent Date: {{ post.Patent_Date }}</p>
+	<p>Patent Orginzation: {{ post.Patent_Orginazation }}</p>
+	<p>Patent State: {{ post.Patent_State }}</p>
+	<p>Patent Title: {{ post.Patent_Title }}</p>
+	<p>Patent Abstract: {{ post.Patent_Abstract }}</p>
+	<p>Patent Inventor/Co-inventors: {{ post.Patent_Inventor }}, {{ post.Patent_Coinventor }}</p>
+	<br>
+	{% endfor %}
+	<h3> Top10 Most Similar Patents</h3>
+	<h4> Patents are ranked by Cosine Similarity of the Patents TF-IDF relative to the other patents in the corpus: </h4>
+	<br>
+	{% if error2 %}
+		<p class=error><strong>Error:</strong> {{ error2 }}
+	{% else %}
+		<h5>Pareto of Patent Orginization(s) in Top10 Similar Patents:</h5>
+		<img src="/static/similarorg{{ patent_number_img.Patent_number }}.png"> 
+		<br>
+		<br>
+		<br>
+		<h5>Pareto of Patent Inventors in Top10 Similar Patents:</h5>
+	<img src="/static/similarinventor{{ patent_number_img.Patent_number }}.png"> 
+	<br>
+	<br>
+	<br>
+	{% endif %}
+	{% if error %}
+		<p class=error><strong>Error:</strong> {{ error }}
+	{% endif %}
+	<br>
+	{% for post in posts %}
+	<p>Patent Number: <a href = "https://www.google.com/patents/US{{ post.Patent_Number }}">{{ post.Patent_Number }}</a></p>
+	<p>Patent Date: {{ post.Patent_Date }}</p>
+	<p>Patent Orginzation: {{ post.Patent_Orginazation }}</p>
+	<p>Patent State: {{ post.Patent_State }}</p>
+	<p>Patent Title: {{ post.Patent_Title }}</p>
+	<p>Patent Abstract: {{ post.Patent_Abstract }}</p>
+	<p>Patent Inventor/Co-inventors: {{ post.Patent_Inventor }}, {{ post.Patent_Coinventor }}</p>
+	<br>
+	{% endfor %}
+{% endblock %}
