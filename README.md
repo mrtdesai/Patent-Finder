@@ -28,8 +28,3 @@ Contour plot of the United States map (top) and bar plot (bottom) showing Total 
 
 ![Screenshot](WebappScreenShot2.png)
 
-# Next Steps #
-* Enable Webapp to use graph analysis to visualize patent citation network
-* Use clustering to find similar groups of documents and characterize their properties
-* Launch Flask Webapp that is publicly accessible 
-
